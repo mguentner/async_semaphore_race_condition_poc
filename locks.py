@@ -78,6 +78,8 @@ class Semaphore(_ContextManagerMixin, mixins._LoopBoundMixin):
                 # reset _wakeup_scheduled *after* waiting for a future
                 self._wakeup_scheduled = False
             except exceptions.CancelledError:
+                if len(self._waiters) == 0:
+                    self._wakeup_scheduled = False
                 self._wake_up_next()
                 raise
         self._value -= 1
