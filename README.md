@@ -11,7 +11,7 @@ git checkout 52876860e43894b636b211643c232de44467dbef
 # you are now using the bad implementation of 9d59381a5d
 ./main.py
 # ^ will never finish
-git checkout master
+git checkout main
 ./main.py
 # ^ will succeed
 ```
